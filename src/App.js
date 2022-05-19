@@ -33,6 +33,7 @@ import Dashboard from './Dashboard.js'
 import Footer from './Footer.js'
 import Header from './Header.js'
 import LoginPage from './LoginPage'
+import Navbar from "./components/Navbar";
 
 // import Dashboard from "./pages/Dashboard";
 import Member from "./pages/Member";
@@ -47,6 +48,12 @@ function App() {
     <Router>
       <SideBar>
         <Routes>
+
+
+        <Route path="/" element={<Navbar />} />
+
+
+        {/* <Navbar /> */}
           <Route path="/" element={<Dashboard />} />
           <Route path="/member" element={<Member />} />
           <Route path="/messages" element={<Messages />} />
