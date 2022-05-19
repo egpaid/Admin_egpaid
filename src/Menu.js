@@ -44,7 +44,13 @@ export default class Menu extends Component {
                       Member
                       {/* <span className="right badge badge-danger">New</span> */}
                     </p>
-                  </a>
+                     </a>
+                     <ul> 
+                          <li>opacitytion</li>
+                          <li>aryab</li>
+                          <li>osowik</li>
+                     </ul>
+                    
                 </li>
                 <li className="nav-item has-treeview">
                   <a href="#" className="nav-link">

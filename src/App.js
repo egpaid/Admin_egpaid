@@ -1,30 +1,72 @@
+// import logo from './logo.svg';
+// import './App.css';
+// import Dashboard from './Dashboard.js'
+// import Footer from './Footer.js'
+// import Header from './Header.js'
+// import Menu from './Menu.js'
+
+
+
+
+// function App() {
+//   return (
+//     <div >
+//             {/* <Header/>  
+//       <Dashboard/>
+//       <Footer/>   */}
+//       <Menu/>  
+
+
+//     </div>
+//   );
+// }
+
+// export default App;
+
+
+
+import "./App.css";
+import SideBar from "./components/Sidebar/SideBar";
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import logo from './logo.svg';
-import './App.css';
-import Header from './Header';
-import Menu from './Menu';
-import Dashboard from './Dashboard';
-import Footer from './Footer';
-import LoginPage from './LoginPage';
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom'
+import Dashboard from './Dashboard.js'
+import Footer from './Footer.js'
+import Header from './Header.js'
+import LoginPage from './LoginPage'
 
-// import LoginPage from "./components/LoginPage/LoginPage";
-
-
+// import Dashboard from "./pages/Dashboard";
+import Member from "./pages/Member";
+import Messages from "./pages/Messages";
+import FileManager from "./pages/FileManager";
+import Analytics from "./pages/Analytics";
+import Order from "./pages/Order";
+import Saved from "./pages/Saved";
+import Setting from "./pages/Setting";
 function App() {
   return (
-    <div class="wrapper">
-      <Header />
-      <Menu />
-      <Dashboard />
-      <Router>
+    <Router>
+      <SideBar>
         <Routes>
-          <Route exact path='/loginpage' element={<LoginPage />} />
-          <Route path='/' element={<Dashboard />} />
+          <Route path="/" element={<Dashboard />} />
+          <Route path="/member" element={<Member />} />
+          <Route path="/messages" element={<Messages />} />
+          <Route path="/analytics" element={<Analytics />} />
+          <Route path="/file-manager" element={<FileManager />} />
+          <Route path="/order" element={<Order />} />
+          <Route path="/saved" element={<Saved />} />
+          <Route path="/settings" element={<Setting />} />
+
+          <Route path="*" element={<> not found</>} />
         </Routes>
-      </Router>
+      </SideBar>
+
+      <Header />
+      {/* <Dashboard /> */}
       <Footer />
-      <LoginPage />
-    </div>
+      <LoginPage/>
+      {/* <Menu /> */}
+
+    </Router>
   );
 }
 
