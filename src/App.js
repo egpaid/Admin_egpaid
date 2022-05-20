@@ -27,7 +27,7 @@
 
 import "./App.css";
 import SideBar from "./components/Sidebar/SideBar";
-import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import { BrowserRouter as Router, Route, Routes, } from "react-router-dom";
 import logo from './logo.svg';
 import Dashboard from './Dashboard.js'
 import Footer from './Footer.js'
@@ -43,17 +43,19 @@ import Analytics from "./pages/Analytics";
 import Order from "./pages/Order";
 import Saved from "./pages/Saved";
 import Setting from "./pages/Setting";
+import { useCookies } from 'react-cookie';
 function App() {
+  const [cookies, setCookie] = useCookies(['token']);
+  console.log('cookies', cookies.token)
   return (
     <Router>
-      <SideBar>
+      {/* <SideBar> */}
         <Routes>
-
-
-        <Route path="/" element={<Navbar />} />
-
-
-        {/* <Navbar /> */}
+          <Route path="/admin-login" element={<LoginPage/>} />
+  
+        
+          <Route path="/" element={<Navbar />} />
+          
           <Route path="/" element={<Dashboard />} />
           <Route path="/member" element={<Member />} />
           <Route path="/messages" element={<Messages />} />
@@ -64,13 +66,13 @@ function App() {
           <Route path="/settings" element={<Setting />} />
 
           <Route path="*" element={<> not found</>} />
+          
         </Routes>
-      </SideBar>
+      {/* </SideBar> */}
 
-      <Header />
+      {/* <Header /> */}
       {/* <Dashboard /> */}
-      <Footer />
-      <LoginPage/>
+
       {/* <Menu /> */}
 
     </Router>

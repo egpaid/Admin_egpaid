@@ -1,15 +1,17 @@
 import React, {useEffect, useState} from 'react';
 import { Button, Col, Container, Form, Row, } from "react-bootstrap";
 import axios from 'axios';
+import { useCookies } from 'react-cookie';
+import {useNavigate} from 'react-router-dom'
 import { canGoNext } from 'react-slick/lib/utils/innerSliderUtils';
 // import { useState } from 'react';
-
 const LoginPage = () => {
-
+    const history = useNavigate();
     const [mobile, setMobile] = useState('');
     const [password, setPassword] = useState('');
     const [token, setToken] = useState('');
-    const [message, setMessage] = useState('')
+    const [message, setMessage] = useState('');
+    const [cookies, setCookie] = useCookies(['token']);
     useEffect(() => {
         console.log('mobile', mobile)
     })
@@ -30,6 +32,8 @@ const LoginPage = () => {
         }).then((res) => {
             console.log(res);
             const data = res.data;
+            setCookie("token", data.token);
+            history("/")
             setMessage(data.message);
             setToken(data.token)
         }).catch((err) => { 

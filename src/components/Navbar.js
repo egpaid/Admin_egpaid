@@ -6,6 +6,7 @@ import {
   FaYoutubeSquare,
 } from "react-icons/fa";
 import { GiHamburgerMenu } from "react-icons/gi";
+import SideBar from "../components/Sidebar/SideBar";
 import Clock from 'react-live-clock';
 
 import { NavLink } from "react-router-dom";
@@ -13,15 +14,16 @@ import { NavLink } from "react-router-dom";
 const Navbar = () => {
   const [showMediaIcons, setShowMediaIcons] = useState(false);
   return (
-    <>
+    <div style={{ display: 'flex', flexDirection: 'row'}}>
+      <SideBar/>
       <nav className="main-nav">
         {/* 1st logo part  */}
         <div className="logo">
-          <h2 className="">
+          <h3 className="">
             {/* <span>T</span>hapa
             <span>T</span>echnical */}
             EGPAID DASHBOARD
-          </h2>
+          </h3>
         </div>
 
         {/* 2nd menu part  */}
@@ -81,7 +83,7 @@ const Navbar = () => {
         <p>Welcome to </p>
         <h1>Thapa Technical</h1>
       </section> */}
-    </>
+    </div>
   );
 };
 
